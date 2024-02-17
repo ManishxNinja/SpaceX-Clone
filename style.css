@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Familjen+Grotesk:ital,wght@0,400;0,700;1,600&family=Libre+Baskerville&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Familjen+Grotesk:ital,wght@0,400;0,700;1,600&family=Libre+Baskerville&display=swap");
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Familjen Grotesk', sans-serif;
+  font-family: "Familjen Grotesk", sans-serif;
   background-color: #000;
   color: #fff;
 }
@@ -65,13 +67,13 @@ ul {
 
 /* Menu item bottom border */
 .desktop-main-menu ul li a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #fff; 
+  background-color: #fff;
   transform: scaleX(0);
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   transform-origin: right;
@@ -100,45 +102,45 @@ section {
   max-width: 560px;
 }
 
-.section-inner h4{
+.section-inner h4 {
   font-size: 22px;
   margin-bottom: 5px;
   font-weight: 300;
   animation: fadeInUp 0.5s ease-in-out;
 }
-.section-inner h2{
+.section-inner h2 {
   font-size: 50px;
   margin-bottom: 20px;
   font-weight: 700;
   animation: fadeInUp 0.5s ease-in-out 0.2s;
-  animation-fill-mode: both; 
+  animation-fill-mode: both;
   /* it stops showing from start */
 }
 .section-inner a {
   animation: fadeInUp 0.5s ease-in-out 0.4s;
-  animation-fill-mode: both; 
+  animation-fill-mode: both;
   /* it stops showing from start */
 }
 
-/* Background images */ 
+/* Background images */
 
 .section-a {
-  background-image: url('../img/section-a.webp');
+  background-image: url("../img/section-a.webp");
 }
 .section-b {
-  background-image: url('../img/section-b.webp');
+  background-image: url("../img/section-b.webp");
 }
 .section-c {
-  background-image: url('./img/section-c.webp');
+  background-image: url("./img/section-c.webp");
 }
 .section-d {
-  background-image: url('./img/section-d.webp');
+  background-image: url("./img/section-d.webp");
 }
 .section-e {
-  background-image: url('./img/section-e.webp');
+  background-image: url("./img/section-e.webp");
 }
 .section-f {
-  background-image: url('./img/section-f.webp');
+  background-image: url("./img/section-f.webp");
 }
 
 .btn {
@@ -197,7 +199,7 @@ footer ul {
   align-items: center;
   flex-wrap: wrap;
 }
-footer ul li{
+footer ul li {
   margin-right: 30px;
   color: #000;
   text-transform: uppercase;
@@ -212,6 +214,120 @@ footer ul li a:hover {
   color: #aaa;
 }
 
+/*hamburger Menu*/
+
+.hamburger {
+  position: fixed;
+  top: 40px;
+  right: 20px;
+  z-index: 10;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+}
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transition: all 0.5s;
+}
+.hamburger-middle {
+  transform: translateY(5px);
+}
+.hamburger-bottom {
+  transform: translateY(10px);
+}
+
+/* Transistion Hamburger to X when open */
+.open {
+  transform: rotate(90deg);
+}
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+.open .hamburger-middle {
+  display: none;
+}
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+/* Overlay */
+.overlay-show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+/* stop-Bodyscroll */
+.stop-scrolling {
+  overflow: hidden;
+}
+
+/* Hide-Mobile-menu */
+
+.mobile-only {
+  display: none;
+}
+
+/* Mobile menuu */
+
+.mobile-main-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background-color: black;
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+/* animation class for mobile menu Bring menu from right */
+.mobile-animaton {
+  transform: translateX(0);
+}
+
+.mobile-main-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  padding: 50px;
+  width: 100%;
+  
+}
+.mobile-main-menu ul li {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+  border-bottom: 1px #555 dotted;
+  width: 100%;
+  text-align: right;
+  padding-bottom: 8px;
+}
+.mobile-main-menu ul li a {
+  color: #fff;
+  transition: color 0.6s;
+}
+
+.mobile-main-menu ul li a:hover {
+  color: #aaa;
+}
 /* Animations */
 @keyframes fadeInUp {
   0% {
@@ -236,20 +352,23 @@ footer ul li a:hover {
     opacity: 1;
     transform: translateY(0);
   }
-  
 }
 
 /* Media Query */
 
-@media(max-width: 960px) {
+@media (max-width: 960px) {
   /* Hide Desktop Menu */
   .desktop-main-menu {
     display: none;
+  }
 
+  /* show main mobile menu */
+  .mobile-only {
+    display: block;
   }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .section-inner {
     bottom: 75px;
     left: 20px;
@@ -261,7 +380,7 @@ footer ul li a:hover {
     position: absolute;
     top: 30px;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
   footer ul li {
     margin-right: 15px;
